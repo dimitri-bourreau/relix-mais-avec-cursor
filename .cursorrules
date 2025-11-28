@@ -1,0 +1,45 @@
+# Project Rules
+
+## Tech Stack
+- TypeScript (strict mode)
+- React with Next.js (App Router)
+- TailwindCSS for styling
+- NPM as package manager
+
+## Code Style
+- Functional and minimalist — avoid over-engineering
+- Prefer pure functions and immutability where practical
+- Keep components and functions small and focused
+- No unnecessary abstractions
+
+## Architecture
+- Follow hexagonal architecture principles
+- Decouple UI (adapters) from domain logic (core)
+- Domain logic should have no dependencies on frameworks or UI
+- Use dependency injection for external services and side effects
+- Design for testability with interfaces/ports that can be mocked
+
+### Structure
+```
+actions/           # Server actions
+app/               # Next.js App Router (pages, layouts)
+components/        # Shared UI components
+features/          # Domain logic
+  [domain-name]/
+    types/         # Domain types and interfaces
+    services/      # Pure functions (with unit tests alongside)
+    adapters/      # Data fetching classes (ports/adapters)
+    mocks/         # Test mocks for adapters
+```
+
+## Testing
+- Use Jest for testing domain logic
+- Domain tests should be fast and isolated
+- Use mocks for infrastructure dependencies
+- Focus tests on behavior, not implementation details
+
+## General
+- Keep it simple — only build what's needed
+- Prefer composition over inheritance
+- No strict naming conventions — use clear, descriptive names
+
