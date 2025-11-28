@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { searchWord } from "@/features/dictionary/adapters/elixApi";
 import { Meaning } from "@/features/dictionary/types";
 
@@ -75,9 +76,12 @@ export default function Home() {
             Le dico Elix en plus rapide
           </p>
           
-          <button className="mt-4 px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-white/40">
+          <Link
+            href="/vocabulaire-vu-en-cours"
+            className="mt-4 px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105 hover:border-white/40"
+          >
             Vocabulaire vu en cours
-          </button>
+          </Link>
         </header>
 
         {/* Results section */}
