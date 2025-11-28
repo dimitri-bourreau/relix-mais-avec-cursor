@@ -21,3 +21,4 @@ export async function searchWord(word: string): Promise<ElixResponse> {
   return response.json();
 }
 
+

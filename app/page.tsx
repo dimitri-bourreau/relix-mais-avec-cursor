@@ -111,7 +111,7 @@ function HomeContent() {
                         <div className="flex-shrink-0">
                           <video
                             src={meaning.signs[0].path}
-                            className="w-40 h-40 object-cover rounded-xl bg-black/30"
+                            className="w-64 h-64 object-cover rounded-xl bg-black/30"
                             autoPlay
                             loop
                             muted
