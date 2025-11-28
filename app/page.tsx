@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { searchWord } from "@/features/dictionary/adapters/elixApi";
+import { searchWord } from "@/actions/searchWord";
 import { Meaning } from "@/features/dictionary/types";
 
 export default function Home() {
