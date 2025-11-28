@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { searchWord } from "@/actions/searchWord";
 import { Meaning } from "@/features/dictionary/types";
 
-export default function Home() {
+function HomeContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get("q") || "";
@@ -52,15 +52,7 @@ export default function Home() {
   }, [query]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-950 via-fuchsia-900 to-amber-900 animate-gradient" />
-      
-      {/* Decorative orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-fuchsia-500/30 rounded-full blur-3xl animate-pulse-glow" />
-      <div className="absolute bottom-32 right-10 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "0.75s" }} />
-
+    <>
       {/* Content */}
       <div className="relative z-10 flex flex-col min-h-screen px-6 py-12">
         {/* Top section: Title, subtitle, button */}
@@ -152,6 +144,28 @@ export default function Home() {
           </div>
         </footer>
       </div>
+    </>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-950 via-fuchsia-900 to-amber-900 animate-gradient" />
+      
+      {/* Decorative orbs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-fuchsia-500/30 rounded-full blur-3xl animate-pulse-glow" />
+      <div className="absolute bottom-32 right-10 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "0.75s" }} />
+
+      <Suspense fallback={
+        <div className="relative z-10 flex items-center justify-center min-h-screen">
+          <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+        </div>
+      }>
+        <HomeContent />
+      </Suspense>
     </div>
   );
 }
