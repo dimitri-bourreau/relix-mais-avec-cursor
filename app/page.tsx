@@ -1,14 +1,33 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { searchWord } from "@/features/dictionary/adapters/elixApi";
 import { Meaning } from "@/features/dictionary/types";
 
 export default function Home() {
-  const [query, setQuery] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get("q") || "";
+  
+  const [query, setQuery] = useState(initialQuery);
   const [results, setResults] = useState<Meaning[]>([]);
   const [loading, setLoading] = useState(false);
 
+  // Update URL when query changes
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (query.trim()) {
+        router.replace(`?q=${encodeURIComponent(query)}`, { scroll: false });
+      } else {
+        router.replace("/", { scroll: false });
+      }
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [query, router]);
+
+  // Fetch results when query changes
   useEffect(() => {
     if (!query.trim()) {
       setResults([]);
