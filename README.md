@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RELIX 🐇
 
-## Getting Started
+**Le Dico Elix, en plus rapide**
 
-First, run the development server:
+> Recherchez des signes de la Langue des Signes Française (LSF) dans le dictionnaire Elix, rapidement et simplement.
+
+![RELIX Screenshot](public/screenshot.png)
+
+## ✨ Fonctionnalités
+
+- **Recherche instantanée** — Les résultats s'affichent au fur et à mesure que vous tapez
+- **Vidéos LSF** — Visualisez les signes en vidéo directement dans les résultats
+- **URLs partageables** — Partagez un lien vers une recherche spécifique (ex: `/?q=bonjour`)
+- **Vocabulaire de cours** — Accédez rapidement aux mots vus en cours
+
+## 🚀 Démo
+
+**[relix-mais-avec-cursor.vercel.app](https://relix-mais-avec-cursor.vercel.app)**
+
+## 🤖 Généré avec Cursor
+
+**100% du code de cette application a été généré avec [Cursor](https://cursor.com)**, l'éditeur de code propulsé par l'IA.
+
+Ce projet est une réécriture de [RELIX original](https://github.com/dimitri-bourreau/relix), réalisée entièrement en pair-programming avec l'IA de Cursor.
+
+## 🛠️ Stack technique
+
+- **Next.js 16** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **Playwright** (tests E2E)
+
+## 📦 Installation
 
 ```bash
+# Cloner le repo
+git clone https://github.com/dimitri-bourreau/relix-mais-avec-cursor.git
+cd relix-mais-avec-cursor
+
+# Installer les dépendances
+npm install
+
+# Configurer les variables d'environnement
+echo "ELIX_API_KEY=your_api_key" > .env.local
+
+# Lancer en développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧪 Tests
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Lancer les tests E2E
+npm run test:e2e
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Lancer avec l'interface UI
+npm run test:e2e:ui
+```
 
-## Learn More
+## 📝 Licence
 
-To learn more about Next.js, take a look at the following resources:
+MIT
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Fait avec ❤️ et beaucoup d'IA*
