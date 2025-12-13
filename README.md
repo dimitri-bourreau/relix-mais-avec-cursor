@@ -15,7 +15,7 @@
 
 ## 🚀 Démo
 
-**[relix-mais-avec-cursor.vercel.app](https://relix-mais-avec-cursor.vercel.app)**
+**[relix-inky.vercel.app](https://relix-inky.vercel.app)**
 
 ## 🤖 Généré avec Cursor
 
