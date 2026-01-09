@@ -15,6 +15,10 @@ function HomeContent() {
   const [results, setResults] = useState<Meaning[]>([]);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    setQuery(initialQuery);
+  }, [initialQuery]);
+
   // Update URL when query changes
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -57,12 +61,14 @@ function HomeContent() {
       <div className="relative z-10 flex flex-col min-h-screen px-6 py-12">
         {/* Top section: Title, subtitle, button */}
         <header className="flex flex-col items-center text-center gap-6">
-          <h1 className="text-6xl md:text-8xl font-black tracking-tight animate-float">
-            <span className="bg-gradient-to-r from-white via-fuchsia-200 to-amber-200 bg-clip-text text-transparent">
-              RELIX
-            </span>
-            <span className="ml-3">🐇</span>
-          </h1>
+          <Link href="/">
+            <h1 className="text-6xl md:text-8xl font-black tracking-tight cursor-pointer">
+              <span className="bg-gradient-to-r from-white via-fuchsia-200 to-amber-200 bg-clip-text text-transparent">
+                RELIX
+              </span>
+              <span className="ml-3">🐇</span>
+            </h1>
+          </Link>
           
           <p className="text-lg md:text-xl text-fuchsia-100/80 font-medium tracking-widest uppercase">
             Le dico Elix en plus rapide
